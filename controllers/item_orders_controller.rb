@@ -7,7 +7,6 @@ class ItemOrdersController < ApplicationController
 
     # party.id = item_order.party_id
     @party = Party.find(params["pid"])
-    @food_item = FoodItem.find(params["id"])
     @food_items = FoodItem.all
     @burritos = FoodItem.where(:category => 'Burritos')
     @tacos = FoodItem.where(:category => 'Tacos')

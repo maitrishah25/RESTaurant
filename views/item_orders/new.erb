@@ -10,7 +10,7 @@
         <li>
           <%= burrito.name %> <form action="/item_orders" method="post" value="+">
             <input type="hidden" name="item_order[party_id]" value="<%= @party.id %>">
-            <input type="hidden" name="item_order[food_item_id]" value="<%= @food_item.id %>">
+            <input type="hidden" name="item_order[food_item_id]" value="<%= burrito.id %>">
               <button type="submit" name="button">+</button>
           </form>
         </li>
@@ -25,7 +25,7 @@
         <li>
           <%= taco.name %><form action="/item_orders" method="post" value="+">
             <input type="hidden" name="item_order[party_id]" value="<%= @party.id %>">
-            <input type="hidden" name="item_order[food_item_id]" value="<%= @food_item.id %>">
+            <input type="hidden" name="item_order[food_item_id]" value="<%= taco.id %>">
               <button type="submit" name="button">+</button>
         </li>
       <% end %>
@@ -39,7 +39,7 @@
         <li>
           <%= nacho.name %><form action="/item_orders" method="post" value="+">
             <input type="hidden" name="item_order[party_id]" value="<%= @party.id %>">
-            <input type="hidden" name="item_order[food_item_id]" value="<%= @food_item.id %>">
+            <input type="hidden" name="item_order[food_item_id]" value="<%= nacho.id %>">
               <button type="submit" name="button">+</button>
         </li>
       <% end %>
@@ -53,7 +53,7 @@
         <li>
           <%= fajita.name %><form action="/item_orders" method="post" value="+">
             <input type="hidden" name="item_order[party_id]" value="<%= @party.id %>">
-            <input type="hidden" name="item_order[food_item_id]" value="<%= @food_item.id %>">
+            <input type="hidden" name="item_order[food_item_id]" value="<%= fajita.id %>">
               <button type="submit" name="button">+</button>
         </li>
       <% end %>
