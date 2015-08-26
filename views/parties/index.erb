@@ -1,0 +1,10 @@
+<h1>Select a Table</h1>
+
+<div class="three columns">
+
+  <% (1..9).each do |i| %>
+
+    <a href="parties/new?table_num=<%=i%>" class="button"><%= i %></a>
+
+  <% end %>
+</div>

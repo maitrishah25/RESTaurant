@@ -1,0 +1,14 @@
+<h3>Enter Order</h3>
+
+<ul>
+<div id="accordion">
+  <%gtest = @food_items.uniq.pluck(:category)%>
+
+<% gtest.each do |category| %>
+<h4><%= category %></h4>
+<div>
+
+</div>
+<% end %>
+</div>
+</ul>
