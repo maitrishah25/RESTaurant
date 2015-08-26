@@ -1,0 +1,10 @@
+<h3>Order: Party <%= @party.id %></h3>
+
+
+<ul>
+<% @item_orders.each do |item_order| %>
+
+<li><%= item_order.food_item.name %></li>
+
+<% end %>
+</ul>

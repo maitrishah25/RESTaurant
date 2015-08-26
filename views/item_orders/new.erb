@@ -2,13 +2,64 @@
 
 <ul>
 <div id="accordion">
-  <%gtest = @food_items.uniq.pluck(:category)%>
 
-<% gtest.each do |category| %>
-<h4><%= category %></h4>
-<div>
+  <h4>Burritos</h4>
+  <div>
+    <ul>
+      <% @burritos.each do |burrito| %>
+        <li>
+          <%= burrito.name %> <form action="/item_orders" method="post" value="+">
+            <input type="hidden" name="item_order[party_id]" value="<%= @party.id %>">
+            <input type="hidden" name="item_order[food_item_id]" value="<%= @food_item.id %>">
+              <button type="submit" name="button">+</button>
+          </form>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
-</div>
-<% end %>
+  <h4>Tacos</h4>
+  <div>
+    <ul>
+      <% @tacos.each do |taco| %>
+        <li>
+          <%= taco.name %><form action="/item_orders" method="post" value="+">
+            <input type="hidden" name="item_order[party_id]" value="<%= @party.id %>">
+            <input type="hidden" name="item_order[food_item_id]" value="<%= @food_item.id %>">
+              <button type="submit" name="button">+</button>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <h4>Nachos</h4>
+  <div>
+    <ul>
+      <% @nachos.each do |nacho| %>
+        <li>
+          <%= nacho.name %><form action="/item_orders" method="post" value="+">
+            <input type="hidden" name="item_order[party_id]" value="<%= @party.id %>">
+            <input type="hidden" name="item_order[food_item_id]" value="<%= @food_item.id %>">
+              <button type="submit" name="button">+</button>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <h4>Fajitas</h4>
+  <div>
+    <ul>
+      <% @fajitas.each do |fajita| %>
+        <li>
+          <%= fajita.name %><form action="/item_orders" method="post" value="+">
+            <input type="hidden" name="item_order[party_id]" value="<%= @party.id %>">
+            <input type="hidden" name="item_order[food_item_id]" value="<%= @food_item.id %>">
+              <button type="submit" name="button">+</button>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+
 </div>
 </ul>
