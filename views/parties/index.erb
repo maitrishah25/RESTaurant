@@ -1,10 +1,14 @@
+<div class="container four columns">
 <h1>Select a Table</h1>
 
-<div class="three columns">
+<div class=" tables">
 
   <% (1..9).each do |i| %>
-
-    <a href="parties/new?table_num=<%=i%>" class="button"><%= i %></a>
-
+    <a href="/parties/new?table_num=<%=i%>" class="button clickable"><%= i %></a>
   <% end %>
+</div>
+<br>
+
+<a href="/parties/editall" class="button">All Receipts</a>
+
 </div>

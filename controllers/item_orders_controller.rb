@@ -1,10 +1,11 @@
 class ItemOrdersController < ApplicationController
 
-
-
+  get '/' do
+    @item_orders = ItemOrder.all
+    erb :'item_orders/index'
+  end
 
   get '/new' do
-
     # party.id = item_order.party_id
     @party = Party.find(params["pid"])
     @food_items = FoodItem.all
@@ -22,8 +23,3 @@ class ItemOrdersController < ApplicationController
   end
 
 end
-
-# require 'pg'
-# conn = PG.connect(dbname: 'postgres')
-# conn = PG.connect(dbname: 'cheesy_burritos')
-# conn.exec("SELECT * FROM food_items where category = 'Burritos';")

@@ -1,3 +1,13 @@
-ul {
+li {
   list-style-type: none;
+  background-color: lightblue;
+}
+
+.not-paid {
+  background-color: lightblue;
+}
+
+.tables {
+  width: 75%;
+  text-align: center;
 }

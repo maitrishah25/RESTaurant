@@ -6,7 +6,7 @@ class PartiesController < ApplicationController
   end
 
   get '/new' do
-    # @parties = Party.all
+    @parties = Party.all
     @table_num = params[:table_num]
     erb :'parties/new'
   end
@@ -19,8 +19,46 @@ class PartiesController < ApplicationController
   get '/:id' do
     @party = Party.find(params[:id])
     @item_orders = ItemOrder.where(:party_id => params[:id])
+    @table_num = params[:table_num]
     erb :'parties/show'
   end
 
+  delete '/:id' do
+    party = ItemOrder.find(params[:id]).party_id
+    ItemOrder.delete(params[:id])
+    redirect "/parties/#{party}"
+  end
+
+  get '/:id/edit' do
+    @party = Party.find(params[:id])
+    @item_orders = ItemOrder.where(:party_id => params[:id])
+    @table_num = params[:table_num]
+    erb :'parties/edit'
+  end
+
+  put '/:id/edit' do
+    @party = Party.find(params[:id])
+    @party.update(params[:party])
+    @item_orders = ItemOrder.where(:party_id => params[:id])
+    @table_num = params[:table_num]
+    erb :'parties/edit'
+  end
+
+  get '/editall' do
+    @parties = Party.all
+    @party = Party.find(params[:id])
+    @item_orders = ItemOrder.where(:party_id => params[:id])
+    @table_num = params[:table_num]
+    erb :'parties/editall'
+  end
+
+  put '/editall' do
+    @parties = Party.all
+    @party = Party.find(params[:id])
+    @party.update(params[:party])
+    @item_orders = ItemOrder.where(:party_id => params[:id])
+    @table_num = params[:table_num]
+    erb :'parties/editall'
+  end
 
 end

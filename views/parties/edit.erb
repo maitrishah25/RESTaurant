@@ -1,0 +1,28 @@
+<div class="container four columns">
+<h3>Confirm Receipt</h3>
+
+<h3>Order: Party <%= @party.id %></h3>
+
+<h5> Table Number: <%= @party.table_num %></h5>
+
+<ul>
+<% @item_orders.each do |item_order| %>
+
+<li><%= item_order.food_item.name %></li>
+
+<% end %>
+</ul>
+
+<h6>Total: $</h6>
+
+<form action="/parties/<%= @party.id %>/edit" method="post">
+  <input type="hidden" name="_method" value="put">
+  <input type="hidden" name="party[is_paid?]" value="TRUE">
+  <button type="submit">PAID</button>
+</form>
+
+
+<a href="/item_orders/new?pid=<%= @party.id %>" class="button">Back to Food</a>
+<a href="/parties" class="button">Back to Tables</a>
+
+</div>

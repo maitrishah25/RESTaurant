@@ -1,10 +1,19 @@
 <h3>Order: Party <%= @party.id %></h3>
 
+<h5> Table Number: <%= @party.table_num %></h5>
 
 <ul>
 <% @item_orders.each do |item_order| %>
 
-<li><%= item_order.food_item.name %></li>
+<li><%= item_order.food_item.name %>
+  <form action="/parties/<%= item_order.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" name="button">-</button>
+  </form>
+</li>
 
 <% end %>
 </ul>
+
+<a href="/item_orders/new?pid=<%= @party.id %>" class="button">Back to Menu</a>
+<a href="/parties/<%= @party.id %>/edit" class="button">Submit Order</a>

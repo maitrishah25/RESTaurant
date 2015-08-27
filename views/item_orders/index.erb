@@ -1,0 +1,15 @@
+<h3>All Orders</h3>
+
+<a href="../" class="button">All Parties</a>
+
+<ul>
+<% @item_orders.each do |item_order| %>
+
+<li>
+
+<%= item_order.food_item.name %>, (table <%= item_order.party.table_num %>)
+
+</li>
+
+<% end %>
+</ul>
