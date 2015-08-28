@@ -1,14 +1,24 @@
 <div class="container four columns">
 <h1>Select a Table</h1>
 
-<div class=" tables">
-
+<div class="tables">
   <% (1..9).each do |i| %>
-    <a href="/parties/new?table_num=<%=i%>" class="button clickable"><%= i %></a>
+
+    <% if (Party.find_by(table_num: i) && !Party.find_by(table_num: i).is_paid? )%>
+      <a href="/parties/new?table_num=<%=i%>" class="button clickable occupied"><%= i %></a>
+    <% elsif (Party.find_by(table_num: i) && Party.find_by(table_num: i).is_paid? )%>
+      <a href="/parties/new?table_num=<%=i%>" class="button clickable"><%= i %></a>
+    <% else %>
+      <a href="/parties/new?table_num=<%=i%>" class="button clickable"><%= i %></a>
+
+    <% end %>
+
   <% end %>
 </div>
 <br>
 
-<a href="/parties/editall" class="button">All Receipts</a>
+<a href="../editall" class="button">See All Receipts</a>
+<a href="/item_orders" class="button">See All Orders</a>
+<a href="../" class="button">See All Parties</a>
 
 </div>

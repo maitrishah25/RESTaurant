@@ -1,3 +1,4 @@
+<div class="container four columns">
 <h3>Order: Party <%= @party.id %></h3>
 
 <h5> Table Number: <%= @party.table_num %></h5>
@@ -12,8 +13,12 @@
   </form>
 </li>
 
+
+<!-- <h6>Total: $<%= @party.bill_subt %></h6> -->
+
 <% end %>
 </ul>
 
 <a href="/item_orders/new?pid=<%= @party.id %>" class="button">Back to Menu</a>
 <a href="/parties/<%= @party.id %>/edit" class="button">Submit Order</a>
+</div>

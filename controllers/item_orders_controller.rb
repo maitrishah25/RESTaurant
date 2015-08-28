@@ -14,12 +14,37 @@ class ItemOrdersController < ApplicationController
     @nachos = FoodItem.where(:category => 'Nachos')
     @fajitas = FoodItem.where(:category => 'Fajitas')
 
+
     erb :'item_orders/new'
   end
 
   post '/' do
-    @item_order = ItemOrder.create(params[:item_order])
-    redirect "parties/#{@item_order.party_id}"
+    food_items = FoodItem.all
+    party_id = params['party_id']
+    food_item_id = params['food_item_id']
+    @party = Party.find(party_id)
+
+    food_items.each do |food_item|
+      ItemOrder.create({
+        party_id: party_id,
+        food_item_id: food_item_id
+        })
+
+      # party = ItemOrder.find(params[:pid])
+      @party.bill_subt += food_item.price
+
+      @party.update({
+            bill_subt: @party.bill_subt
+        })
+
+      end
+    redirect "parties/#{@party.id}"
+
+  end
+
+  delete '/:id' do
+    ItemOrder.delete(params[:id])
+    redirect '/item_orders'
   end
 
 end

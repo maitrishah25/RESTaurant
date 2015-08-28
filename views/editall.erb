@@ -1,0 +1,21 @@
+<div class="container four columns">
+<h3>All Receipts</h3>
+
+<div id="accordion">
+
+  <% @parties.each do |party| %>
+  <% if party.is_paid? %>
+  <h5 class="paid">Party: <%= party.id %>, Table: <%= party.table_num %></h5>
+  <% else %>
+  <h5>Party: <%= party.id %>, Table: <%= party.table_num %> </h5>
+  <% end %>
+
+  <div>
+
+<a href="/parties/<%= party.id %>/edit" class="button">Confirm Payment</a>
+<a href="/item_orders/new?pid=<%= party.id %>" class="button">Add Order</a>
+<a href="/parties" class="button">Back to Tables</a>
+
+</div>
+<% end %>
+</div>

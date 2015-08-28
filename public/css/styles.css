@@ -3,11 +3,34 @@ li {
   background-color: lightblue;
 }
 
-.not-paid {
-  background-color: lightblue;
-}
 
 .tables {
   width: 75%;
   text-align: center;
+}
+
+h5 {
+  background-color: lightblue;
+}
+
+/*tables*/
+.occupied {
+  background-color: lightblue;
+}
+
+/*parties*/
+.paid {
+  background-color: #dddddd;
+}
+
+.red {
+  background-color: red;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.green {
+  background-color: green;
 }

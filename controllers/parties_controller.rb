@@ -44,21 +44,5 @@ class PartiesController < ApplicationController
     erb :'parties/edit'
   end
 
-  get '/editall' do
-    @parties = Party.all
-    @party = Party.find(params[:id])
-    @item_orders = ItemOrder.where(:party_id => params[:id])
-    @table_num = params[:table_num]
-    erb :'parties/editall'
-  end
-
-  put '/editall' do
-    @parties = Party.all
-    @party = Party.find(params[:id])
-    @party.update(params[:party])
-    @item_orders = ItemOrder.where(:party_id => params[:id])
-    @table_num = params[:table_num]
-    erb :'parties/editall'
-  end
 
 end

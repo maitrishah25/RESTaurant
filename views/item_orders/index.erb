@@ -1,3 +1,4 @@
+<div class="container four columns">
 <h3>All Orders</h3>
 
 <a href="../" class="button">All Parties</a>
@@ -5,11 +6,43 @@
 <ul>
 <% @item_orders.each do |item_order| %>
 
-<li>
+<% time = ((Time.now - item_order.created_at)/60).round %>
+
+<% if time < 15 %>
+<li class="green">
 
 <%= item_order.food_item.name %>, (table <%= item_order.party.table_num %>)
+<form action="/item_orders/<%= item_order.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit">Remove Item</button>
+</form>
+<h6><%= time %> mins ago!</h6>
+
+<% elsif time > 25 %>
+<li class="red">
+
+<%= item_order.food_item.name %>, (table <%= item_order.party.table_num %>)
+<form action="/item_orders/<%= item_order.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit">COMPLETE</button>
+</form>
+<h6><%= time %> mins ago!</h6>
+
+<% else %>
+<li class="orange">
+
+<%= item_order.food_item.name %>, (table <%= item_order.party.table_num %>)
+<form action="/item_orders/<%= item_order.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit">Remove Item</button>
+</form>
+<h6><%= time %> mins ago!</h6>
+
 
 </li>
 
 <% end %>
+
+<% end %>
 </ul>
+</div>

@@ -1,6 +1,5 @@
 <div class="container four columns">
 <h3>Enter Order</h3>
-
 <ul>
 <div id="accordion">
 
@@ -11,10 +10,11 @@
         <li>
           <%= burrito.name %>
           <form action="/item_orders" method="post">
-            <input type="hidden" name="item_order[party_id]" value="<%= @party.id %>">
-            <input type="hidden" name="item_order[food_item_id]" value="<%= burrito.id %>">
+            <input type="hidden" name="party_id" value="<%= @party.id %>">
+            <input type="hidden" name="food_item_id" value="<%= burrito.id %>">
               <button type="submit" name="button">+</button>
           </form>
+
         </li>
       <% end %>
     </ul>
@@ -27,10 +27,11 @@
         <li>
           <%= taco.name %>
           <form action="/item_orders" method="post" value="+">
-            <input type="hidden" name="item_order[party_id]" value="<%= @party.id %>">
-            <input type="hidden" name="item_order[food_item_id]" value="<%= taco.id %>">
+            <input type="hidden" name="party_id" value="<%= @party.id %>">
+            <input type="hidden" name="food_item_id" value="<%= taco.id %>">
               <button type="submit" name="button">+</button>
           </form>
+
         </li>
       <% end %>
     </ul>
@@ -43,10 +44,11 @@
         <li>
           <%= nacho.name %>
           <form action="/item_orders" method="post" value="+">
-            <input type="hidden" name="item_order[party_id]" value="<%= @party.id %>">
-            <input type="hidden" name="item_order[food_item_id]" value="<%= nacho.id %>">
+            <input type="hidden" name="party_id" value="<%= @party.id %>">
+            <input type="hidden" name="food_item_id" value="<%= nacho.id %>">
               <button type="submit" name="button">+</button>
           </form>
+
         </li>
       <% end %>
     </ul>
@@ -59,9 +61,10 @@
         <li>
           <%= fajita.name %>
           <form action="/item_orders" method="post" value="+">
-            <input type="hidden" name="item_order[party_id]" value="<%= @party.id %>">
-            <input type="hidden" name="item_order[food_item_id]" value="<%= fajita.id %>">
+            <input type="hidden" name="party_id" value="<%= @party.id %>">
+            <input type="hidden" name="food_item_id" value="<%= fajita.id %>">
               <button type="submit" name="button">+</button>
+
           </form>
         </li>
       <% end %>
