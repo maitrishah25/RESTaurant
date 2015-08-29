@@ -1,0 +1,11 @@
+<h3>Menu</h3>
+
+<a href="../parties" class="button">Tables</a>
+
+<ul>
+<% @food_items.each do |food_item| %>
+<li>
+<%= food_item.name %>, $<%= food_item.price %>
+</li>
+<% end %>
+</ul>

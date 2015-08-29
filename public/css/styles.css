@@ -1,21 +1,54 @@
-li {
-  list-style-type: none;
-  background-color: lightblue;
+body {
+  background-color: gainsboro;
 }
 
+li {
+  list-style-type: none;
+  /*background-color: lightblue;*/
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  width:90%;
+}
+
+.navbar {
+  margin-top: 3%;
+}
+
+h1 {
+  margin: 10% 0 10% 0;
+  font-size: 3em;
+  color: #6a6a6a;
+  /*color: darkgray;*/
+}
 
 .tables {
-  width: 75%;
   text-align: center;
+  margin: 5% auto;
+  padding: 5% 0;
 }
 
 h5 {
   background-color: lightblue;
 }
 
+.clickable {
+  padding: 7% 10%;
+  margin: 1%;
+  font-size: 1.5em;
+}
+
+/*.available {
+  background-color: #f8f8f8;
+}*/
+
 /*tables*/
 .occupied {
-  background-color: lightblue;
+  background-color: #14c4ec;
+  color: white;
 }
 
 /*parties*/
@@ -23,14 +56,42 @@ h5 {
   background-color: #dddddd;
 }
 
+.kitchen-orders {
+    padding-left: 0;
+}
+
 .red {
   background-color: red;
+  padding: 2%;
+  margin: 2%;
 }
 
 .orange {
   background-color: orange;
+  padding: 2%;
+  margin: 2%;
 }
 
 .green {
   background-color: green;
+  padding: 2%;
+  margin: 2%;
+}
+
+.rotate {
+  /* Safari */
+-webkit-transform: rotate(-90deg);
+
+/* Firefox */
+-moz-transform: rotate(-90deg);
+
+/* IE */
+-ms-transform: rotate(-90deg);
+
+/* Opera */
+-o-transform: rotate(-90deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
 }

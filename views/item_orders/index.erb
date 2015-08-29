@@ -1,9 +1,9 @@
-<div class="container four columns">
+<div class="container">
 <h3>All Orders</h3>
 
-<a href="../" class="button">All Parties</a>
+<a href="../parties/" class="button">Tables</a>
 
-<ul>
+<ul class="kitchen-orders">
 <% @item_orders.each do |item_order| %>
 
 <% time = ((Time.now - item_order.created_at)/60).round %>
@@ -14,7 +14,7 @@
 <%= item_order.food_item.name %>, (table <%= item_order.party.table_num %>)
 <form action="/item_orders/<%= item_order.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
-  <button type="submit">Remove Item</button>
+  <button type="submit">COMPLETE</button>
 </form>
 <h6><%= time %> mins ago!</h6>
 
@@ -34,7 +34,7 @@
 <%= item_order.food_item.name %>, (table <%= item_order.party.table_num %>)
 <form action="/item_orders/<%= item_order.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
-  <button type="submit">Remove Item</button>
+  <button type="submit">COMPLETE</button>
 </form>
 <h6><%= time %> mins ago!</h6>
 

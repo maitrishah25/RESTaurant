@@ -1,15 +1,15 @@
-<div class="container four columns">
-<h1>Select a Table</h1>
+<div class="container">
+<h1>Select a <strong>Table</strong></h1>
 
 <div class="tables">
   <% (1..9).each do |i| %>
 
-    <% if (Party.find_by(table_num: i) && !Party.find_by(table_num: i).is_paid? )%>
-      <a href="/parties/new?table_num=<%=i%>" class="button clickable occupied"><%= i %></a>
+    <% if ((party = Party.find_by(table_num: i)) && !Party.find_by(table_num: i).is_paid?) %>
+      <a href="/parties/<%= party.id %>/edit" class="clickable occupied btn btn-default"><%= i %></a>
     <% elsif (Party.find_by(table_num: i) && Party.find_by(table_num: i).is_paid? )%>
-      <a href="/parties/new?table_num=<%=i%>" class="button clickable"><%= i %></a>
+      <a href="/parties/new?table_num=<%=i%>" class="clickable btn btn-default"><%= i %></a>
     <% else %>
-      <a href="/parties/new?table_num=<%=i%>" class="button clickable"><%= i %></a>
+      <a href="/parties/new?table_num=<%=i%>" class="clickable  btn btn-default"><%= i %></a>
 
     <% end %>
 
@@ -17,8 +17,25 @@
 </div>
 <br>
 
-<a href="../editall" class="button">See All Receipts</a>
-<a href="/item_orders" class="button">See All Orders</a>
-<a href="../" class="button">See All Parties</a>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <!-- <div class="navbar-header">
+      <a class="navbar-brand" href="/parties">Cheesy Burritos</a>
+    </div> -->
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/parties">Tables</a></li>
+        <li><a href="/item_orders">Kitchen</a></li>
+        <li><a href="/food_items">Menu</a></li>
+        <li><a href="/food_items/allergens">Allergens</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- <a href="/item_orders" class="button btn">Kitchen</a> -->
+<!-- <a href="/food_items" class="button btn">Menu</a> -->
+<!-- <a href="../editall" class="button">See All Receipts</a>
+<a href="../" class="button">See All Parties</a> -->
 
 </div>

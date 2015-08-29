@@ -1,26 +1,25 @@
-<div class="container four columns">
+<div class="container">
 <h3>Enter Order</h3>
 <ul>
 <div id="accordion">
+  <span><img src="../../images/Burritos.jpg" alt="Burritos" /><h4>Burritos</h4></span>
 
-  <h4>Burritos</h4>
   <div>
     <ul>
       <% @burritos.each do |burrito| %>
         <li>
-          <%= burrito.name %>
-          <form action="/item_orders" method="post">
+          <form action="/item_orders" method="post" style="display:inline!important;">
             <input type="hidden" name="party_id" value="<%= @party.id %>">
             <input type="hidden" name="food_item_id" value="<%= burrito.id %>">
               <button type="submit" name="button">+</button>
           </form>
-
+          <%= burrito.name %>
         </li>
       <% end %>
     </ul>
   </div>
 
-  <h4>Tacos</h4>
+  <span><h4>Tacos</h4><img src="../../images/Tacos.jpg" alt="Tacos" /></span>
   <div>
     <ul>
       <% @tacos.each do |taco| %>
@@ -37,7 +36,7 @@
     </ul>
   </div>
 
-  <h4>Nachos</h4>
+  <span><h4>Nachos</h4><img src="../../images/Nachos.jpg" alt="Nachos" /></span>
   <div>
     <ul>
       <% @nachos.each do |nacho| %>
@@ -54,7 +53,7 @@
     </ul>
   </div>
 
-  <h4>Fajitas</h4>
+  <span><h4>Fajitas</h4><img src="../../images/Fajitas.jpg" alt="Fajitas" /></span>
   <div>
     <ul>
       <% @fajitas.each do |fajita| %>
@@ -74,5 +73,7 @@
 
 </div>
 </ul>
+
+<a href="../food_items/allergens" class="button">Allergens</a>
 
 </div>

@@ -24,20 +24,17 @@ class ItemOrdersController < ApplicationController
     food_item_id = params['food_item_id']
     @party = Party.find(party_id)
 
-    food_items.each do |food_item|
       ItemOrder.create({
         party_id: party_id,
         food_item_id: food_item_id
         })
 
-      # party = ItemOrder.find(params[:pid])
-      @party.bill_subt += food_item.price
+    #  food_items.each do |food_item|
+     #
+    #   party = ItemOrder.find(params[:pid])
+    #   @party.bill_subt += food_item.price
+     #
 
-      @party.update({
-            bill_subt: @party.bill_subt
-        })
-
-      end
     redirect "parties/#{@party.id}"
 
   end

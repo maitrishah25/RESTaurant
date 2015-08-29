@@ -1,6 +1,6 @@
-<div class="container four columns">
-<h3>Confirm Receipt</h3>
-
+<div class="container">
+<h3>Receipt</h3>
+<% @party.bill_subt = 0 %>
 <h3>Party: <%= @party.id %></h3>
 
 <h5> Table: <%= @party.table_num %></h5>
@@ -9,16 +9,21 @@
 <% @item_orders.each do |item_order| %>
 
 <li><%= item_order.food_item.name %></li>
+<% @party.bill_subt += item_order.food_item.price %>
 
 <% end %>
 </ul>
 
-<strong>Subtotal: $<%= @party.bill_subt %></strong>
+
+<strong>Subtotal: $<%= '%.2f' % (@party.bill_subt) %></strong>
+
+<% @party.update({ bill_subt: @party.bill_subt }) %>
+
 <p>
   Suggested Tip: <br>
-  15% = $<%= @party.bill_subt * 0.15 %><br>
-  18% = $<%= @party.bill_subt * 0.18 %><br>
-  20% = $<%= @party.bill_subt * 0.20 %><br>
+  15% = $<%= '%.2f' % (@party.bill_subt * 0.15) %><br>
+  18% = $<%=  '%.2f' % (@party.bill_subt * 0.18) %><br>
+  20% = $<%=  '%.2f' % (@party.bill_subt * 0.20) %><br>
 </p>
 
 
@@ -28,9 +33,8 @@
   <button type="submit">PAID</button>
 </form>
 
-<a href="/item_orders/new?pid=<%= @party.id %>" class="button">Add Order</a>
-
-<a href="/../editall" class="button">Back to Receipts</a>
-<a href="/parties" class="button">Back to Tables</a>
+<!-- <a href="/item_orders/new?pid=<%= @party.id %>" class="button">Add Order</a>
+<a href="/../editall" class="button">Back to Receipts</a> -->
+<a href="/parties" class="button">Tables</a>
 
 </div>
