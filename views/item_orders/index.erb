@@ -1,42 +1,42 @@
 <div class="container">
-<h3>All Orders</h3>
-
-<a href="../parties/" class="button">Tables</a>
+<h1>All Orders</h1>
 
 <ul class="kitchen-orders">
 <% @item_orders.each do |item_order| %>
 
 <% time = ((Time.now - item_order.created_at)/60).round %>
 
-<% if time < 15 %>
+<% if time < 5 %>
 <li class="green">
 
-<%= item_order.food_item.name %>, (table <%= item_order.party.table_num %>)
+<strong><%= item_order.food_item.name %>, (Table <%= item_order.party.table_num %>)</strong><br>
+<span><%= time %> mins ago!</span>
 <form action="/item_orders/<%= item_order.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
-  <button type="submit">COMPLETE</button>
+  <button type="submit" class="order-complete">COMPLETE</button>
 </form>
-<h6><%= time %> mins ago!</h6>
 
-<% elsif time > 25 %>
+<% elsif time > 15 %>
 <li class="red">
 
-<%= item_order.food_item.name %>, (table <%= item_order.party.table_num %>)
+<strong><%= item_order.food_item.name %>, (Table <%= item_order.party.table_num %>)</strong><br>
+<span><%= time %> mins ago!</span>
 <form action="/item_orders/<%= item_order.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
-  <button type="submit">COMPLETE</button>
+  <button type="submit" class="order-complete">COMPLETE</button>
 </form>
-<h6><%= time %> mins ago!</h6>
+
 
 <% else %>
 <li class="orange">
 
-<%= item_order.food_item.name %>, (table <%= item_order.party.table_num %>)
+<strong><%= item_order.food_item.name %>, (Table <%= item_order.party.table_num %>)</strong><br>
+<span><%= time %> mins ago!</span>
 <form action="/item_orders/<%= item_order.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
-  <button type="submit">COMPLETE</button>
+  <button type="submit" class="order-complete">COMPLETE</button>
 </form>
-<h6><%= time %> mins ago!</h6>
+
 
 
 </li>
@@ -45,4 +45,20 @@
 
 <% end %>
 </ul>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <!-- <div class="navbar-header">
+      <a class="navbar-brand" href="/parties">Cheesy Burritos</a>
+    </div> -->
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="/parties">Tables</a></li>
+        <li class="active"><a href="/item_orders">Kitchen</a></li>
+        <li><a href="/food_items">Menu</a></li>
+        <li><a href="/food_items/allergens">Allergens</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 </div>

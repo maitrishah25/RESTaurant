@@ -1,24 +1,24 @@
 <div class="container">
-<h3>Order: Party <%= @party.id %></h3>
+  <h4>CONFIRM ORDER</h4>
+  <hr>
+  <h3>Party: <%= @party.id %></h3>
+  <h5> Table: <%= @party.table_num %></h5><hr>
 
-<h5> Table Number: <%= @party.table_num %></h5>
-
-<ul>
+<ul class="party-order">
 <% @item_orders.each do |item_order| %>
-
-<li><%= item_order.food_item.name %>
-  <form action="/parties/<%= item_order.id %>" method="post">
+<li class="row"><span class="col-xs-8">&middot; <%= item_order.food_item.name %></span>
+  <span class="col-xs-4"><form action="/parties/<%= item_order.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <button type="submit" name="button">-</button>
-  </form>
+    <button type="submit" name="button" class="subtract-order">-</button>
+  </form></span>
 </li>
-
-
-<!-- <h6>Total: $<%= @party.bill_subt %></h6> -->
-
 <% end %>
 </ul>
 
-<a href="/item_orders/new?pid=<%= @party.id %>" class="button">Back to Menu</a>
-<a href="/parties/<%= @party.id %>/edit" class="button">Submit Order</a>
+
+
+<div class="submit-order">
+  <a href="/item_orders/new?pid=<%= @party.id %>" class="btn btn-info submit-order submit">ADD ITEM</a><br>
+  <a href="/parties/<%= @party.id %>/edit" class="btn btn-info submit">SUBMIT ORDER</a>
+</div>
 </div>

@@ -1,26 +1,30 @@
 <div class="container">
-<h3>Receipt</h3>
-<% @party.bill_subt = 0 %>
+<h4>RECEIPT</h4>
+<% @party.bill_subt = 0 %><hr>
 <h3>Party: <%= @party.id %></h3>
 
-<h5> Table: <%= @party.table_num %></h5>
+<h5> Table: <%= @party.table_num %></h5><hr>
 
-<ul>
+<span>&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;</span><br>
+
+<ul class="receipt">
 <% @item_orders.each do |item_order| %>
 
-<li><%= item_order.food_item.name %></li>
+<li>&middot; <%= item_order.food_item.name %></li>
 <% @party.bill_subt += item_order.food_item.price %>
 
 <% end %>
 </ul>
 
+<span>&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;</span><br>
 
-<strong>Subtotal: $<%= '%.2f' % (@party.bill_subt) %></strong>
-
+<h4><strong>Subtotal: $<%= '%.2f' % (@party.bill_subt) %></strong></h4><br>
 <% @party.update({ bill_subt: @party.bill_subt }) %>
 
+<span>&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;</span>
+
 <p>
-  Suggested Tip: <br>
+  Suggested Tip:<br>
   15% = $<%= '%.2f' % (@party.bill_subt * 0.15) %><br>
   18% = $<%=  '%.2f' % (@party.bill_subt * 0.18) %><br>
   20% = $<%=  '%.2f' % (@party.bill_subt * 0.20) %><br>
@@ -30,11 +34,20 @@
 <form action="/parties/<%= @party.id %>/edit" method="post">
   <input type="hidden" name="_method" value="put">
   <input type="hidden" name="party[is_paid?]" value="TRUE">
-  <button type="submit">PAID</button>
+  <button type="submit" class="paid-button btn btn-info">PAID</button>
 </form>
 
-<!-- <a href="/item_orders/new?pid=<%= @party.id %>" class="button">Add Order</a>
-<a href="/../editall" class="button">Back to Receipts</a> -->
-<a href="/parties" class="button">Tables</a>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <!-- <div class="navbar-header">
+      <a class="navbar-brand" href="/parties">Cheesy Burritos</a>
+    </div> -->
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="/parties">Tables</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 </div>

@@ -1,70 +1,65 @@
 <div class="container">
-<h3>Enter Order</h3>
-<ul>
+<h1>Enter Order</h1>
+<ul class="new-order">
 <div id="accordion">
-  <span><img src="../../images/Burritos.jpg" alt="Burritos" /><h4>Burritos</h4></span>
-
+  <h4 class="foods">Burritos</h4>
   <div>
     <ul>
       <% @burritos.each do |burrito| %>
-        <li>
-          <form action="/item_orders" method="post" style="display:inline!important;">
+        <li class="row">
+          <span class="col-xs-8"><%= burrito.name %></span>
+          <span class="col-xs-4"><form action="/item_orders" method="post">
             <input type="hidden" name="party_id" value="<%= @party.id %>">
             <input type="hidden" name="food_item_id" value="<%= burrito.id %>">
-              <button type="submit" name="button">+</button>
-          </form>
-          <%= burrito.name %>
+              <button type="submit" name="button" class="add-order">+</button>
+          </form></span>
         </li>
       <% end %>
     </ul>
   </div>
-
-  <span><h4>Tacos</h4><img src="../../images/Tacos.jpg" alt="Tacos" /></span>
+  <h4 class="foods">Tacos</h4>
   <div>
     <ul>
       <% @tacos.each do |taco| %>
-        <li>
-          <%= taco.name %>
-          <form action="/item_orders" method="post" value="+">
+        <li class="row">
+          <span class="col-xs-8"><%= taco.name %></span>
+          <span class="col-xs-4"><form action="/item_orders" method="post">
             <input type="hidden" name="party_id" value="<%= @party.id %>">
             <input type="hidden" name="food_item_id" value="<%= taco.id %>">
-              <button type="submit" name="button">+</button>
-          </form>
+              <button type="submit" name="button" class="add-order">+</button>
+          </form></span>
 
         </li>
       <% end %>
     </ul>
   </div>
-
-  <span><h4>Nachos</h4><img src="../../images/Nachos.jpg" alt="Nachos" /></span>
+  <h4 class="foods">Nachos</h4>
   <div>
     <ul>
       <% @nachos.each do |nacho| %>
-        <li>
-          <%= nacho.name %>
-          <form action="/item_orders" method="post" value="+">
+        <li class="row">
+          <span class="col-xs-8"><%= nacho.name %></span>
+          <span class="col-xs-4"><form action="/item_orders" method="post">
             <input type="hidden" name="party_id" value="<%= @party.id %>">
             <input type="hidden" name="food_item_id" value="<%= nacho.id %>">
-              <button type="submit" name="button">+</button>
-          </form>
+              <button type="submit" name="button" class="add-order">+</button>
+          </form></span>
 
         </li>
       <% end %>
     </ul>
   </div>
-
-  <span><h4>Fajitas</h4><img src="../../images/Fajitas.jpg" alt="Fajitas" /></span>
+  <h4 class="foods">Fajitas</h4>
   <div>
     <ul>
       <% @fajitas.each do |fajita| %>
-        <li>
-          <%= fajita.name %>
-          <form action="/item_orders" method="post" value="+">
+        <li class="row">
+          <span class="col-xs-8"><%= fajita.name %></span>
+          <span class="col-xs-4"><form action="/item_orders" method="post">
             <input type="hidden" name="party_id" value="<%= @party.id %>">
             <input type="hidden" name="food_item_id" value="<%= fajita.id %>">
-              <button type="submit" name="button">+</button>
-
-          </form>
+              <button type="submit" name="button" class="add-order">+</button>
+          </form></span>
         </li>
       <% end %>
     </ul>
@@ -74,6 +69,17 @@
 </div>
 </ul>
 
-<a href="../food_items/allergens" class="button">Allergens</a>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <!-- <div class="navbar-header">
+      <a class="navbar-brand" href="/parties">Cheesy Burritos</a>
+    </div> -->
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="/food_items/allergens">Allergens</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 </div>

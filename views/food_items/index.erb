@@ -1,11 +1,27 @@
-<h3>Menu</h3>
+<div class="container">
+<h1>Menu</h1>
 
-<a href="../parties" class="button">Tables</a>
-
-<ul>
+<ul class="menu">
 <% @food_items.each do |food_item| %>
 <li>
-<%= food_item.name %>, $<%= food_item.price %>
+<span class="col-xs-8 menu-items"><%= food_item.name %></span><span class="col-xs-4 menu-items">$<%= food_item.price %></span> 
 </li>
 <% end %>
 </ul>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <!-- <div class="navbar-header">
+      <a class="navbar-brand" href="/parties">Cheesy Burritos</a>
+    </div> -->
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="/parties">Tables</a></li>
+        <li><a href="/item_orders">Kitchen</a></li>
+        <li class="active"><a href="/food_items">Menu</a></li>
+        <li><a href="/food_items/allergens">Allergens</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
