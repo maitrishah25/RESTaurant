@@ -17,6 +17,6 @@
 
 ### Technologies
 - Ruby / Sinatra / PSQL
-- javascript /jQuery
+- javascript / jQuery
 - CSS3 / Bootstrap
 - HTML5
