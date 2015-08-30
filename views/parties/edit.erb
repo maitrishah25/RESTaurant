@@ -37,6 +37,10 @@
   <input type="hidden" name="party[is_paid?]" value="TRUE">
   <button type="submit" class="paid-button btn btn-info">PAID</button>
 </form>
+<% if @party.is_paid? %>
+<span id="checkmark" class="glyphicon glyphicon-ok" aria-hidden="true"> PAYMENT COMPLETE</span>
+<% end %>
+
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container-fluid">

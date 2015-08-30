@@ -121,6 +121,11 @@ hr {
   padding: 5% 8%;
 }
 
+#checkmark {
+  color: green;
+}
+
+
 .kitchen-orders {
   padding-left: 0;
 }
