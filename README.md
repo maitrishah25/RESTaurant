@@ -1,6 +1,6 @@
 ## RESTaurant Server Application
 
-![preview](demo.gif)
+![preview](demo3.gif)
 
 - User: Server
 - Function: Create and manage food orders between parties and kitchen
