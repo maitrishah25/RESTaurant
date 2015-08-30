@@ -28,9 +28,7 @@ ActiveRecord::Schema.define(version: 20150828012132) do
   create_table "item_orders", force: :cascade do |t|
     t.integer  "food_item_id"
     t.integer  "party_id"
-    t.integer  "seat_num"
-    t.integer  "guest_id"
-    t.string   "date"
+    t.boolean  "complete",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,8 +1,9 @@
 <div class="container">
   <h4>CONFIRM ORDER</h4>
-  <hr>
+  <h6><%= @party.created_at %></h6><hr>
+
   <h3>Party: <%= @party.id %></h3>
-  <h5> Table: <%= @party.table_num %></h5><hr>
+  <h5> Table: <%= @party.table_num %></h5>
 
 <ul class="party-order">
 <% @item_orders.each do |item_order| %>
@@ -15,6 +16,12 @@
 <% end %>
 </ul>
 
+<!-- <% @party.bill_subt = 0 %><hr>
+<% @item_orders.each do |item_order| %>
+<% @party.bill_subt += item_order.food_item.price %>
+<h4><strong>Subtotal: $<%= '%.2f' % (@party.bill_subt) %></strong></h4><br>
+<% @party.update({ bill_subt: @party.bill_subt }) %>
+<% end %> -->
 
 
 <div class="submit-order">

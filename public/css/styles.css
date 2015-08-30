@@ -11,7 +11,6 @@ h1 {
   margin: 10% 0 10% 0;
   font-size: 3em;
   color: #6a6a6a;
-  /*color: darkgray;*/
 }
 
 h3 {
@@ -21,7 +20,6 @@ h3 {
 
 h4 {
   font-size: 150%;
-  /*margin: 10% auto 0 auto;*/
   color: #6a6a6a;
 }
 
@@ -34,11 +32,17 @@ p {
   font-size: 125%;
 }
 
+hr {
+  background-color: black;
+}
+
 .container {
   margin: 0 auto;
   padding: 0;
   text-align: center;
   width:90%;
+  /*animation-name: fadeIn;
+  animation-duration: 0.5s;*/
 }
 
 .navbar {
@@ -56,6 +60,10 @@ p {
   padding: 7% 10%;
   margin: 1%;
   font-size: 1.5em;
+}
+
+.new-party{
+  margin-top: 20%;
 }
 
 /*tables*/
@@ -96,7 +104,7 @@ p {
 }
 
 .submit-order {
-  margin: 25% 0 5% 0;
+  margin: 10% 0 5% 0;
 }
 
 .submit {
@@ -146,6 +154,10 @@ p {
   padding: 4%;
 }
 
+/*.hide {
+  display: none;
+}*/
+
 .receipt {
   padding-left: 0;
 }
@@ -157,6 +169,10 @@ p {
 .menu-items {
   text-align: left;
 }
+
+/*.menu-items li:nth-child(even) {
+  background-color: #cccccc;
+}*/
 
 .rotate {
   /* Safari */
@@ -177,5 +193,15 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 td {
-  padding: 1% 4%;
+  padding: 2% 1%;
+  /*color: #14c4ec;*/
+  /*border: 1px solid #eeeeee;*/
+}
+
+tr:nth-child(even) {
+  background-color: #cccccc;
+}
+
+.item-name {
+  text-align: left;
 }

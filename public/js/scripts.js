@@ -7,4 +7,9 @@
     $(".clickable").click(function() {
       $(this).addClass("not-paid");
     });
+    // $(".order-complete").click(function(){
+    //   $(this).parent().addClass("hide");
+    //   return false;
+    // });
+
   });

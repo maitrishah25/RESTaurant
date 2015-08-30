@@ -1,8 +1,9 @@
 <div class="container">
 <h4>RECEIPT</h4>
-<% @party.bill_subt = 0 %><hr>
-<h3>Party: <%= @party.id %></h3>
+<h6><%= @party.created_at %></h6><hr>
 
+<% @party.bill_subt = 0 %>
+<h3>Party: <%= @party.id %></h3>
 <h5> Table: <%= @party.table_num %></h5><hr>
 
 <span>&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;</span><br>

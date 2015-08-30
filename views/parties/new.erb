@@ -1,9 +1,23 @@
 <div class="container">
 <h1>Create New Party</h1>
 
-<form action="/parties/new" method="post"  class="input-group input-group-lg">
+<form action="/parties/new" method="post"  class="input-group input-group-lg new-party">
   <input type="text" name="party[num_of_guests]" placeholder="Number of guests?" class="form-control">
   <input type="hidden" name="party[table_num]" value="<%= @table_num %>">
   <span class="input-group-btn"><input type="submit" class="btn btn-info"></span>
 </form>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <!-- <div class="navbar-header">
+      <a class="navbar-brand" href="/parties">Cheesy Burritos</a>
+    </div> -->
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="/parties">Tables</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 </div>

@@ -3,8 +3,8 @@
 
 <ul class="menu">
 <% @food_items.each do |food_item| %>
-<li>
-<span class="col-xs-8 menu-items"><%= food_item.name %></span><span class="col-xs-4 menu-items">$<%= food_item.price %></span> 
+<li class="menu-items">
+<span class="col-xs-9"><%= food_item.name %></span><span class="col-xs-3">$<%= food_item.price %></span> 
 </li>
 <% end %>
 </ul>

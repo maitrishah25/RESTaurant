@@ -12,7 +12,8 @@
 <strong><%= item_order.food_item.name %>, (Table <%= item_order.party.table_num %>)</strong><br>
 <span><%= time %> mins ago!</span>
 <form action="/item_orders/<%= item_order.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="_method" value="put">
+  <input type="hidden" name="item_order[complete]" value="TRUE">
   <button type="submit" class="order-complete">COMPLETE</button>
 </form>
 
@@ -22,7 +23,8 @@
 <strong><%= item_order.food_item.name %>, (Table <%= item_order.party.table_num %>)</strong><br>
 <span><%= time %> mins ago!</span>
 <form action="/item_orders/<%= item_order.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="_method" value="put">
+  <input type="hidden" name="item_order[complete]" value="TRUE">
   <button type="submit" class="order-complete">COMPLETE</button>
 </form>
 
@@ -33,7 +35,8 @@
 <strong><%= item_order.food_item.name %>, (Table <%= item_order.party.table_num %>)</strong><br>
 <span><%= time %> mins ago!</span>
 <form action="/item_orders/<%= item_order.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="_method" value="put">
+  <input type="hidden" name="item_order[complete]" value="TRUE">
   <button type="submit" class="order-complete">COMPLETE</button>
 </form>
 

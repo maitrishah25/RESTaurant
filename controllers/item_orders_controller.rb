@@ -1,9 +1,16 @@
 class ItemOrdersController < ApplicationController
 
   get '/' do
-    @item_orders = ItemOrder.all
+  @open_orders = ItemOrder.where(complete:[FALSE])
+  @item_orders = []
+  @open_orders.map do |item_order|
+    if item_order.complete == FALSE
+      @item_orders.push(item_order)
+      end
+    end
     erb :'item_orders/index'
   end
+
 
   get '/new' do
     # party.id = item_order.party_id
@@ -29,18 +36,14 @@ class ItemOrdersController < ApplicationController
         food_item_id: food_item_id
         })
 
-    #  food_items.each do |food_item|
-     #
-    #   party = ItemOrder.find(params[:pid])
-    #   @party.bill_subt += food_item.price
-     #
 
     redirect "parties/#{@party.id}"
 
   end
 
-  delete '/:id' do
-    ItemOrder.delete(params[:id])
+  put '/:id' do
+    item_order = ItemOrder.find(params[:id])
+    item_order.update(params[:item_order])
     redirect '/item_orders'
   end
 
